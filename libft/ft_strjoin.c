@@ -21,26 +21,29 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	j;
-	size_t	clen;
-	char	*s;
+	char			*result;
+	char			*head;
+	unsigned int	total_len;
 
-	if (!s1 || !s2)
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	clen = ft_strlen(s1) + ft_strlen(s2);
-	i = 0;
-	j = 0;
-	s = (char*)malloc(sizeof(char) * (clen + 1));
-	if (!s)
+	total_len = ft_strlen(s1) + ft_strlen(s2);
+	result = malloc(sizeof(*result) * (total_len + 1));
+	if (result == NULL)
 		return (NULL);
-	while (i < ft_strlen(s1))
+	head = result;
+	while (*s1)
 	{
-		s[i] = s1[i];
-		i++;
+		*result = *s1;
+		result++;
+		s1++;
 	}
-	while (i < clen)
-		s[i++] = s2[j++];
-	s[i] = '\0';
-	return (s);
+	while (*s2)
+	{
+		*result = *s2;
+		result++;
+		s2++;
+	}
+	*result = '\0';
+	return (head);
 }

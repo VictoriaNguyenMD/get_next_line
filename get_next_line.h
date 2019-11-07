@@ -10,17 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE
-# define GET_NEXT_LINE
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 8 //macro, altered by the reviewer
-# define MAX_FD 256 //macro, ulimi-n to find the max file descriptors
+# define BUFF_SIZE 100
+# define MAX_FD 255
 
-# include <stdlib.h> //malloc,free
-# include <unistd.h> //write, read
-# include <stdio.h> //printf
-# include <fcntl.h> //O_RDONLY
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
 
-int get_next_line(const int fd, char **line); //prototype for get_next_line
-
+int get_next_line(const int fd, char **line);
 #endif
