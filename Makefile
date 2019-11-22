@@ -19,7 +19,7 @@ CFLAGS = -Wall -Wextra -Werror
 SANIT = -fsanitize=address
 
 #TEST
-MAIN = MAIN
+MAIN = TEST
 
 #Command that compiles the *.c files
 $(NAME):
@@ -37,7 +37,7 @@ re: fclean all
 
 test:
 	@make -C libft/ fclean && make -C libft/ 
-	@gcc -D $(MAIN) $(SRC_FILES) -I./libft -L./libft/ -lft 
+	@gcc -D $(MAIN) $(SRC_FILES) -g -I./libft -L./libft/ -lft 
 	@./a.out
 
 norm:
